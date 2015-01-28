@@ -1,0 +1,61 @@
+{% extends "/base.html" %}
+{% set active_page = "applications" %}
+{% set active_app  = app.short_name %}
+{% import "applications/_helpers.html" as helper %}
+
+{% block content %}
+{% from "_formhelpers.html" import render_field %}
+{{ helper.render_loading(loading_text) }}
+<div class="row">
+    <div class="span3">
+        {{ helper.render_app_local_nav(app, 'tasks', current_user)}}
+    </div>
+
+
+   <div class="span9">
+       <h1><strong>{{app.name}}</strong>: {{_('Import tasks')}}</h1>
+       <h2>{{_('From a Dropbox folder')}}
+           {% if folders %}
+           <a href="{{ url_for('dropbox.logout', next=url_for(target, short_name=app.short_name, type='dropbox')) }}" class="btn btn-secondary pull-right">{{ _('Revoke access') }}</a>
+           {% endif %}
+       </h2>
+       {% if not folders %}
+          <p>{{ _('Grant Crowdcrafting access to your Dropbox public folders to select one...') }}</p></br>
+
+       <p><a href="{{ url_for('dropbox.login', next=url_for(target, short_name=app.short_name, type='dropbox')) }}" class="btn btn-secondary">{{ _('Log in Flickr') }}</a></p>
+       {% else %}
+           {{ _('Select one of your folders:') }}
+           <div class="row">
+           <ul>
+           {% for folder in folders %}
+               <li class="span4">
+                   <h3>{{ folder['title'] }}</h3>
+                   <img src="{{ folder['thumbnail_url'] }}">
+                   <p class="small">{{ folder['photos'] }} {{ _('photos') }}</p>
+                   <button class="btn btn-default">{{ _('Select') }}</button>
+               </li>
+           {% endfor %}
+           </ul>
+       </div>
+      </br>
+        {% endif %}
+        <br>
+        {% if form %}
+        <form class="form-horizontal" method="post" action="{{ url_for(target, short_name=app.short_name) }}">
+            <fieldset>
+                { _('For more information, please look at') }} <a href="http://docs.pybossa.com/en/latest/user/overview.html#importing-the-tasks-from-a-dropbox-photo-set" target="_blank">{{ _('the documentation') }}.</a>
+                <div class="form-actions">
+                    <input id="submit" type="submit" value="{{_('Import')}}" class="btn btn-primary" />
+                    <a href="{{ url_for('app.settings', short_name=app.short_name) }}" class="btn">{{_('Cancel')}}</a>
+                </div>
+            </fieldset>
+        </form>
+        {% endif %}
+    </div>
+</div>
+<script>
+    $("#submit").off('click').on('click', function(){
+        $("#loading").show();
+    });
+</script>
+{% endblock %}
