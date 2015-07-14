@@ -4,46 +4,65 @@
 
 {% block content %}
       <div class="banner">
-        <div class="row">
-          <div class="span4">
-              <h1>{{ brand }}</h1>
-              {% include ['custom/front_page_text.html', 'home/_pybossa_text.html'] ignore missing %}
-          </div>
-          <div class="span8">
-            <ul class="featured">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+                <h1>{{ brand }}</h1>
+                {% include ['custom/front_page_text.html', 'home/_pybossa_text.html'] ignore missing %}
+            </div>
+            <div class="col-md-8">
+              <div class="row">
                 {% for f in categories_projects['featured'] %}
-                <li><a href="{{ url_for('project.details', short_name=f.short_name)}}">
+                <div class="col-xs-4 col-sm-2">
+                  <a href="{{ url_for('project.details', short_name=f.short_name)}}">
                     {{ helper.render_project_thumbnail(f, upload_method) }}
                     <h3>{{f.name}}</h3>
                     <span class="label label-info">{{ _('Info') }}</span>
-                    </a>
-                </li>
+                  </a>
+                </div>
                 {% endfor %}
                 {% for number in range(18 - categories_projects['featured']|count) %}
-                <li></li>
+                <div class="col-xs-4 col-sm-2">
+                  <div class="featured"></div>
+                </div>
                 {% endfor %}
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <section class="grey get-started">
-        <div class="row">
-          <div class="span4">
-              <h2><i class="icon-play-circle"></i> {{ _('Get Started') }}</h2>
-            <p>{{ _('It\'s really simple to start contributing.') }}</p>
-          </div>
-          <div class="span8">
-              <a href="{{url_for('project.index')}}" class="btn btn-info btn-large"><i class="icon-ok-sign"></i>{{ _(' Start Contributing') }}</a> <a href="{{url_for('project.new')}}" class="btn btn-primary btn-large"><i class="icon-plus-sign"></i> {{ _('Create a Project') }}</a>
-          </div>
-      </section>
       
-      <section>
-        <h2><i class="icon-th"></i>{{ _('Most Active Projects') }}</h2>
+      <div class="container-fluid grey">
+        <section class="get-started container">
+          <div class="row">
+            <div class="col-md-4">
+                <h2><i class="glyphicon glyphicon-play-circle"></i> {{ _('Get Started') }}</h2>
+              <p>{{ _('It\'s really simple to start contributing.') }}</p>
+            </div>
+            <div class="col-md-8">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="get-started-call">
+                    <a href="{{url_for('project.index')}}" class="btn btn-info btn-lg btn-block"><i class="glyphicon glyphicon-ok-sign"></i>{{ _(' Start Contributing') }}</a>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="get-started-call">
+                    <a href="{{url_for('project.new')}}" class="btn btn-primary btn-lg btn-block"><i class="glyphicon glyphicon-plus-sign"></i> {{ _('Create a Project') }}</a>
+                  </div>
+                </div>
+              </div>
+                 
+            </div>
+        </section>
+      </div>
+      
+      <section class="container">
+        <h2><i class="glyphicon glyphicon-th"></i> {{ _('Most Active Projects') }}</h2>
         <div class="row">
           {% for project in top_projects %}
-          <div class="span3">
-            <div class="project box">
+          <div class="col-md-3">
+            <div class="text-center">
                 {% if project.info.thumbnail %}
                 <a href="{{url_for('project.details', short_name=project.short_name)}}" class="image" style="background-image:url({{helper.render_url_thumbnail(project, upload_method)}})"></a>
                 {% else %}
@@ -51,17 +70,17 @@
                 {% endif %}
                 <h3>{{project.name | truncate(20, true)}}</h3>
                 <p>{{project.description | truncate(32, true)}}</p>
-                <p><a href="{{url_for('project.details',short_name=project.short_name)}}" class="btn btn-mini btn-info">Info</a> <a href="{{url_for('project.presenter',short_name=project.short_name)}}" class="btn btn-mini btn-primary">{{ _('Start') }}</a></p>
+                <p><a href="{{url_for('project.details',short_name=project.short_name)}}" class="btn btn-xs btn-info">Info</a> <a href="{{url_for('project.presenter',short_name=project.short_name)}}" class="btn btn-xs btn-primary">{{ _('Start') }}</a></p>
             </div>
           </div>
           {% endfor %}
           {% for i in range(4-top_projects|count)%}
-          <div class="span3">
-            <div class="project box">
+          <div class="col-xs-6 col-md-3">
+            <div class="text-center">
                 <a href="#" class="image" style="background-image:url({{url_for('static',filename='img/placeholder.project.png')}})"></a>
                 <h3>{{ _('Your project') }}</h3>
                 <p>{{ _('could be here!') }}</p>
-                <p><a href="{{url_for('project.new')}}" class="btn btn-mini btn-primary">{{ _('Create a project') }}</a></p>
+                <p><a href="{{url_for('project.new')}}" class="btn btn-xs btn-primary">{{ _('Create a project') }}</a></p>
             </div>
           </div>
           {% endfor %}
@@ -69,23 +88,25 @@
       </section>
       
       {% if top_users %}
-      <section id="top_users" class="grey">
-        <h2><i class="icon-group"></i>{{ _('Most Active Volunteers') }}</h2>
-        <ul class="users">
-            {% for user in top_users %}
-          <li>
-          <a href="{{url_for('account.profile', name=user.name)}}" data-content="
-                <strong>{{_('Joined')}}:</strong> {{user.created[0:10]}} 
-                <br/>
-                <strong>{{_('Submitted Tasks')}}:</strong> {{user.task_runs}}
-                " rel="popover" data-original-title="<strong>{{user.fullname}}</strong>">
-                {{ account_helper.render_user_thumbnail(user, upload_method, style="height:90px; width:90px;") }}
-           </a>
-           <span class="label label-success">{{user.task_runs}}</span> <small>{{_('Tasks')}}</small>
-          </li>
-          {% endfor %}
-        </ul>
-      </section>
+      <div class="container-fluid grey">
+        <section id="top_users">
+          <h2><i class="glyphicon glyphicon-group"></i>{{ _('Most Active Volunteers') }}</h2>
+          <ul class="users">
+              {% for user in top_users %}
+            <li>
+            <a href="{{url_for('account.profile', name=user.name)}}" data-content="
+                  <strong>{{_('Joined')}}:</strong> {{user.created[0:10]}} 
+                  <br/>
+                  <strong>{{_('Submitted Tasks')}}:</strong> {{user.task_runs}}
+                  " rel="popover" data-original-title="<strong>{{user.fullname}}</strong>">
+                  {{ account_helper.render_user_thumbnail(user, upload_method, style="height:90px; width:90px;") }}
+             </a>
+             <span class="label label-success">{{user.task_runs}}</span> <small>{{_('Tasks')}}</small>
+            </li>
+            {% endfor %}
+          </ul>
+        </section>
+      </div>
       {% endif %}
 <script>
 $("a[rel=popover]").popover({

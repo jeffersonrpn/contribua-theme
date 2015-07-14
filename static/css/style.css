@@ -1,0 +1,134 @@
+/*!
+ * Contribua Theme 
+ * by Jefferson Neves (https://github.com/jeffersonrpn)
+ */
+a {
+  color: #8bbf36;
+  text-decoration: none;
+}
+a:hover,
+a:active {
+  color: #669933;
+  text-decoration: underline;
+}
+.banner {
+  width: 100%;
+  margin-left: -10px;
+  margin-bottom: 15px;
+  padding: 0px 0px 0px 10px;
+  background-color: #f7f7f7;
+}
+.banner .featured {
+  display: block;
+  width: 103px;
+  height: 103px;
+  background-color: #FFF;
+  background-image: url(../img/placeholder.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 97px 97px;
+  text-align: center;
+}
+.grey {
+  padding-bottom: 15px;
+  background-color: #eeeeee;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-top-color: #d9d9d9;
+  border-bottom-color: #d9d9d9;
+}
+.get-started-call {
+	padding-top: 30px;
+}
+footer {
+  background-color: #7a7a7a;
+  border-top: 1px solid #686868;	
+  color: #CDCDCD;
+}
+footer .container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+/* Bootstrap overhide */
+.btn-primary {
+  background-color: #8bbf36;
+  border: solid 1px #516f20;
+  color: #ffffff;
+}
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary.disabled,
+.btn-primary[disabled] {
+  background-color: #8bbf36;
+}
+.btn-info {
+  background-color: #4190c2;
+  border-color: #265877 #265877 #33749d;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  color: #ffffff;
+}
+.btn-info:hover,
+.btn-info:active,
+.btn-info.active,
+.btn-info.disabled,
+.btn-info[disabled] {
+  background-color: #4190c2;
+}
+.navbar-default {
+  background: #8bbf36;
+  filter: none;
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  color: #FFF;
+  font-size: 14px;
+}
+.navbar-default .navbar-nav > li > a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 20px 3px 20px 0px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  color: #FFF;
+  text-shadow: none;
+}
+@media (max-width: 768px) {
+	.navbar-default .navbar-nav > li > a {
+	  margin: 5px 0px;
+	}
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  background-color: #a2d058;
+  color: #FFF;
+}
+@media (max-width: 768px) {
+	.navbar-brand > img {
+	  max-height: 22px;
+	}
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+	border: none;
+}
+ul.navbar-nav {
+	margin: 0;
+}
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #516f20;
+}
+.navbar-toggle {
+  border: none;
+}
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+	background-color: #a2d058;
+}
