@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% set active_page = "help" %}
 
-{% block content %}
+{% block content %}<div class="container">
 {% if not project_id %}
 {% set project_id=1 %}
 {% endif %}
@@ -92,4 +92,4 @@
 
     </div>
 </div>
-{% endblock %}
+</div>{% endblock %}

@@ -2,7 +2,7 @@
 {% set active_page = "projects" %}
 {% import "projects/_helpers.html" as helper %}
 
-{% block content %}
+{% block content %}<div class="container">
 {% from "_formhelpers.html" import render_field %}
 <script src="{{url_for('static', filename='vendor/codemirror/codemirror.js')}}"></script>
 <link rel="stylesheet" href="{{url_for('static', filename='vendor/codemirror/codemirror.css')}}"/>
@@ -124,4 +124,4 @@ $(".btn-preview").off('click').on('click', function(){
 
 })();
 </script>
-{% endblock %}
+</div>{% endblock %}

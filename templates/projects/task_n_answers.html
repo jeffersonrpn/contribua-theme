@@ -4,7 +4,7 @@
 {% import "projects/_helpers.html" as helper %}
 {% from "_formhelpers.html" import render_field %}
 
-{% block content %}
+{% block content %}<div class="container">
 {% if project %}
         <div class="row">
             <div class="col-md-3">
@@ -31,4 +31,4 @@
 {% endif %}
 {{ helper.broken_image() }}
 {{ helper.knob() }}
-{% endblock %}
+</div>{% endblock %}

@@ -3,7 +3,7 @@
 {% set active_project  = "all" %}
 {% import "projects/_helpers.html" as helper %}
 
-{% block content %}
+{% block content %}<div class="container">
 {% from "_formhelpers.html" import render_field %}
 <div id="project-form" class="row"> 
     <div class="col-md-3">
@@ -27,4 +27,4 @@
 </div>
 {{ helper.broken_image() }}
 {{ helper.knob() }}
-{% endblock %}
+</div>{% endblock %}

@@ -3,7 +3,7 @@
 {% set active_link  = "tasks" %}
 {% import "projects/_helpers.html" as helper %}
 
-{% block content %}
+{% block content %}<div class="container">
 {% if project %}
         <div class="row">
             <div class="col-md-3">
@@ -13,27 +13,35 @@
                 {{ helper.render_project_title(project, subtitle=_('Task Settings'))}}
                 <hr>
                 <div class="row">
-                    <div id="task_scheduler" class="col-md-6 well">
-                        <h2><i class="glyphicon glyphicon-filter"></i> {{_('Task Scheduler')}}</h2>
-                        <p>{{_('Change how the tasks are delivered to volunteers')}}</p>
-                        <a href="{{url_for('project.task_scheduler', short_name=project.short_name)}}" class="btn btn-primary">{{_('Scheduler')}} <i class="glyphicon glyphicon-chevron-right"></i></a>
+                    <div id="task_scheduler" class="col-md-6">
+                        <div class="well">
+                            <h2><i class="glyphicon glyphicon-filter"></i> {{_('Task Scheduler')}}</h2>
+                            <p>{{_('Change how the tasks are delivered to volunteers')}}</p>
+                            <a href="{{url_for('project.task_scheduler', short_name=project.short_name)}}" class="btn btn-primary">{{_('Scheduler')}} <i class="glyphicon glyphicon-chevron-right"></i></a>
+                        </div>
                     </div>
-                    <div id="task_priority" class="col-md-6 well">
-                        <h2><i class="glyphicon glyphicon-sort-by-order-alt"></i> {{_('Task Priority')}}</h2>
-                        <p>{{_('Change the priority of the tasks')}}</p>
-                        <a href="{{url_for('project.task_priority', short_name=project.short_name)}}" class="btn btn-primary">{{_('Priority')}} <i class="glyphicon glyphicon-chevron-right"></i></a>
+                    <div id="task_priority" class="col-md-6">
+                        <div class="well">
+                            <h2><i class="glyphicon glyphicon-sort-by-order-alt"></i> {{_('Task Priority')}}</h2>
+                            <p>{{_('Change the priority of the tasks')}}</p>
+                            <a href="{{url_for('project.task_priority', short_name=project.short_name)}}" class="btn btn-primary">{{_('Priority')}} <i class="glyphicon glyphicon-chevron-right"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div id="task_delete" class="col-md-6 well">
-                        <h2><i class="glyphicon glyphicon-remove"></i> {{_('Delete Tasks')}}</h2>
-                        <p>{{_('Delete all the tasks and associated answers')}}</p>
-                        <a href="{{url_for('project.delete_tasks', short_name=project.short_name)}}" class="btn btn-primary">{{_('Delete')}} <i class="glyphicon glyphicon-chevron-right"></i></a>
+                    <div id="task_delete" class="col-md-6">
+                        <div class="well">
+                            <h2><i class="glyphicon glyphicon-remove"></i> {{_('Delete Tasks')}}</h2>
+                            <p>{{_('Delete all the tasks and associated answers')}}</p>
+                            <a href="{{url_for('project.delete_tasks', short_name=project.short_name)}}" class="btn btn-primary">{{_('Delete')}} <i class="glyphicon glyphicon-chevron-right"></i></a>
+                        </div>
                     </div>
-                    <div id="task_redundancy" class="col-md-6 well">
-                        <h2><i class="glyphicon glyphicon-repeat"></i> {{_('Task Redundancy')}}</h2>
-                        <p>{{_('Change the redundancy level for the tasks')}}</p>
-                        <a href="{{url_for('project.task_n_answers', short_name=project.short_name)}}" class="btn btn-primary">{{_('Redundancy')}} <i class="glyphicon glyphicon-chevron-right"></i></a>
+                    <div id="task_redundancy" class="col-md-6">
+                        <div class="well">
+                            <h2><i class="glyphicon glyphicon-repeat"></i> {{_('Task Redundancy')}}</h2>
+                            <p>{{_('Change the redundancy level for the tasks')}}</p>
+                            <a href="{{url_for('project.task_n_answers', short_name=project.short_name)}}" class="btn btn-primary">{{_('Redundancy')}} <i class="glyphicon glyphicon-chevron-right"></i></a>
+                        </div>
                     </div>
                 </div>
             </div><!-- col-md-9 -->
@@ -44,4 +52,4 @@
   </div>
 {% endif %}
 {{ helper.knob() }}
-{% endblock %}
+</div>{% endblock %}

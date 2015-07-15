@@ -4,7 +4,7 @@
 {% from "projects/_helpers.html" import render_grid_projects, broken_image %}
 {% import "privacy/locked.html" as privacy %}
 
-{% block content %}
+{% block content %}<div class="container">
 <div class="row">
     <div class="col-md-12">
         {% if enforce_privacy and (current_user.is_anonymous() or (current_user.is_authenticated and not current_user.admin)) %}
@@ -28,4 +28,4 @@
     </div>
 </div>
 {{ broken_image() }}
-{% endblock %}
+</div>{% endblock %}

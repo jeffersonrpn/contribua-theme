@@ -4,7 +4,7 @@
 {% import "account/_helpers.html" as helper %}
 {% import "projects/_helpers.html" as project_helper %}
 
-{% block content %}
+{% block content %}<div class="container">
 
 <div class="row">
     <div class="col-md-3">
@@ -30,4 +30,4 @@
     </div><!-- end col-md-9 -->
 </div>
 {{ project_helper.broken_image() }}
-{% endblock %}
+</div>{% endblock %}

@@ -2,6 +2,41 @@
  * Contribua Theme 
  * by Jefferson Neves (https://github.com/jeffersonrpn)
  */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Museo Slab', Arial, Helvetica, sans-serif;
+  font-weight: normal;
+}
+h1 {
+  font-size: 24px;
+  line-height: 26px;
+}
+h2 {
+  font-size: 18px;
+  line-height: normal;
+}
+h2 small {
+  font-size: 18px;
+}
+h3 {
+  font-size: 15px;
+  line-height: normal;
+}
+h1 [class^="glyphicon"],
+h2 [class^="glyphicon"],
+h3 [class^="glyphicon"],
+h4 [class^="glyphicon"],
+h5 [class^="glyphicon"],
+h6 [class^="glyphicon"] {
+  color: #8bbf36;
+  font-size: 1.5em;
+  vertical-align: middle;
+  margin-right: 5px;
+}
 a {
   color: #8bbf36;
   text-decoration: none;
@@ -43,6 +78,7 @@ a:active {
 	padding-top: 30px;
 }
 footer {
+  margin-top: 20px;
   background-color: #7a7a7a;
   border-top: 1px solid #686868;	
   color: #CDCDCD;
@@ -53,16 +89,70 @@ footer .container {
 }
 /* Bootstrap overhide */
 .btn-primary {
+  color: #fff;
   background-color: #8bbf36;
-  border: solid 1px #516f20;
-  color: #ffffff;
+  border-color: #70992C;
 }
-.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.focus {
+  color: #fff;
+  background-color: #79A62F;
+  border-color: #5D8025;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #79A62F;
+  border-color: #5D8025;
+}
 .btn-primary:active,
 .btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color: #79A62F;
+  border-color: #5D8025;
+}
+.btn-primary:active:hover,
+.btn-primary.active:hover,
+.open > .dropdown-toggle.btn-primary:hover,
+.btn-primary:active:focus,
+.btn-primary.active:focus,
+.open > .dropdown-toggle.btn-primary:focus,
+.btn-primary:active.focus,
+.btn-primary.active.focus,
+.open > .dropdown-toggle.btn-primary.focus {
+  color: #fff;
+  background-color: #5D8025;
+  border-color: #5D8025;
+}
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  background-image: none;
+}
 .btn-primary.disabled,
-.btn-primary[disabled] {
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus,
+.btn-primary[disabled].focus,
+fieldset[disabled] .btn-primary.focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
   background-color: #8bbf36;
+  border-color: #70992C;
+}
+.btn-primary .badge {
+  color: #8bbf36;
+  background-color: #fff;
 }
 .btn-info {
   background-color: #4190c2;
@@ -131,4 +221,14 @@ ul.navbar-nav {
 .navbar-default .navbar-toggle:focus,
 .navbar-default .navbar-toggle:hover {
 	background-color: #a2d058;
+}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    color: #fff;
+  }
+}
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+  background-color: #8BBF36;
 }

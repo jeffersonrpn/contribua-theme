@@ -4,7 +4,7 @@
 {% import "account/_helpers.html" as helper %}
 {% from "projects/_helpers.html" import broken_image %}
 
-{% block content %}
+{% block content %}<div class="container">
 {% from "_formhelpers.html" import render_field %}
 <script src="{{url_for('static', filename='js/vendor/jquery.Jcrop.min.js')}}"></script>
 <link rel="stylesheet" href="{{url_for('static', filename='css/jquery.Jcrop.min.css')}}" type="text/css" />
@@ -95,4 +95,4 @@
 </div>
 <script src="{{url_for('static', filename='js/image_crop.js')}}" type="text/javascript"></script>
 {{ broken_image() }}
-{% endblock %}
+</div>{% endblock %}

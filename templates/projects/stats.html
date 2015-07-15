@@ -4,7 +4,7 @@
 {% import "projects/_helpers.html" as helper %}
 {% import "privacy/locked.html" as privacy %}
 
-{% block content %}
+{% block content %}<div class="container">
 <!-- Leaflet maps -->
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css" />
  <!--[if lte IE 8]>
@@ -406,4 +406,4 @@
         </div>
 </div>
 {{ helper.broken_image() }}
-{% endblock %}
+</div>{% endblock %}

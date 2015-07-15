@@ -4,7 +4,7 @@
 {% import "account/_helpers.html" as helper %}
 {% from "projects/_helpers.html" import broken_image %}
 
-{% block content %}
+{% block content %}<div class="container">
 
 <div class="row">
   <div class="col-md-9.col-md-offset-2">
@@ -56,4 +56,4 @@ $("a[rel=popover]").popover({
 
 </script>
 {{ broken_image() }}
-{% endblock %}
+</div>{% endblock %}

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% block content %}<div class="container">
 <p style="padding-top:5px;">
 <p style="padding-top:5px;">
 <span class="label label-warning"><i class="glyphicon glyphicon-bullhorn"></i> {{ _('Note') }}</span>
@@ -41,16 +41,18 @@
     {% endif %}
       {{ render_field(form.email, placeholder="") }}
       {{ render_field(form.password, placeholder="") }}
-    <div class="form-actions">
-      <input type="submit" value="{{ _('Sign in') }}" class="btn btn-primary btn-lg" />
-      <input type="reset" value="{{ _('Cancel') }}" class="btn btn-default" />
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <input type="submit" value="{{ _('Sign in') }}" class="btn btn-primary" />
+        <input type="reset" value="{{ _('Cancel') }}" class="btn btn-default" />
+      </div>
     </div>
   </form>
 
 <div class="row">
-    <div class="col-md-12" style="text-align:center">
-        <a href="{{ url_for('account.register') }}" class="btn btn-success"><i class="icon icon-white icon-user"></i>{{ _(' Create a new account!') }}</a>
+    <div class="col-md-12 text-center">
+        <a href="{{ url_for('account.register') }}" class="btn btn-success"><i class="icon icon-user"></i>{{ _(' Create a new account!') }}</a>
         <a href="{{ url_for('account.forgot_password') }}" class="btn btn-success">{{ _('Forgot Password') }}</a>
     </div>
 </div>
-{% endblock %}
+</div>{% endblock %}

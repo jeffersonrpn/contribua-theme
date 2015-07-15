@@ -37,7 +37,7 @@
           {% endif %}
           {% if current_user.is_anonymous() %}
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="{{ url_for('account.signin') }}"><i class="icon icon-white icon-signin"></i> {{ _('Sign in') }}</a></li>
+              <li><a href="{{ url_for('account.signin') }}"><i class="icon icon-signin"></i> {{ _('Sign in') }}</a></li>
             </ul>
           {% endif %}
         </div><!-- /.navbar-collapse -->

@@ -3,18 +3,19 @@
 
 {% import "projects/_helpers.html" as helper %}
 
-{% block content %}
+{% block content %}<div class="container">
+<div class="container">
 <script src="{{url_for('static', filename='js/vendor/isotope.pkgd.min.js')}}"></script>
 <div class="row">
     <div class="col-md-3">
-            <ul data-spy="affix" data-offset-top="200px" class="nav nav-pills nav-stacked bs-docs-sidenav affix-top">
-                {% for c in categories %}
-                <li {% if active_cat.short_name==c.short_name%}class="active"{% endif %}><a href="{{url_for('project.project_cat_index', category=c.short_name)}}"><i class="glyphicon glyphicon-chevron-right"></i> {{ c.name }}</a></li>
-                {% endfor %}
-                {% if current_user.is_authenticated() and current_user.admin %}
-                <li {% if active_cat.short_name=="draft"%}class="active"{% endif %}><a href="{{url_for('project.draft')}}"><i class="glyphicon glyphicon-chevron-right"></i> {{ _('Draft') }}</a></li>
-                {% endif %}
-            </ul>
+      <ul class="nav nav-pills nav-stacked">
+          {% for c in categories %}
+          <li {% if active_cat.short_name==c.short_name%}class="active"{% endif %}><a href="{{url_for('project.project_cat_index', category=c.short_name)}}"><i class="glyphicon glyphicon-chevron-right"></i> {{ c.name }}</a></li>
+          {% endfor %}
+          {% if current_user.is_authenticated() and current_user.admin %}
+          <li {% if active_cat.short_name=="draft"%}class="active"{% endif %}><a href="{{url_for('project.draft')}}"><i class="glyphicon glyphicon-chevron-right"></i> {{ _('Draft') }}</a></li>
+          {% endif %}
+      </ul>
     </div>
     <div class="col-md-9">
             <div id="sorts" class="btn-group pull-right" style="margin-top:12px;">
@@ -60,6 +61,7 @@
     </div>
 </div>
 {{ helper.broken_image() }}
+</div>
 <script>
 $( function() {
   // init Isotope
@@ -100,4 +102,4 @@ $( function() {
 
 });
 </script>
-{% endblock %}
+</div>{% endblock %}

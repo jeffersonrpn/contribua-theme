@@ -46,7 +46,7 @@
 
     {% include "_flash_messages.html" %}
 
-    {% block content %}{% endblock %}
+    {% block content %}<div class="container"></div>{% endblock %}
 
     {% if show_cookies_warning %}
     <div id="cookies_warning">
@@ -102,5 +102,8 @@
     <script>
     {% include 'cookies.js' %}
     </script>
+    <script type='text/javascript' id="__bs_script__">//<![CDATA[
+    document.write("<script async src='http://HOST:5001/browser-sync/browser-sync-client.2.7.13.js'><\/script>".replace("HOST", location.hostname));
+//]]></script>
   </body>
 </html>

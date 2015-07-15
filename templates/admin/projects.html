@@ -4,7 +4,7 @@
 {% from "account/_helpers.html" import render_account_local_nav %}
 {% from "projects/_helpers.html" import render_project_admin_featured, broken_image %}
 
-{% block content %}
+{% block content %}<div class="container">
 <div class="row">
     <div class="col-md-3">
         {{ render_account_local_nav(current_user, active_link) }}
@@ -31,4 +31,4 @@
     </div>
 </div>
 {{ broken_image() }}
-{% endblock %}
+</div>{% endblock %}

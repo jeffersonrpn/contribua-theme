@@ -2,7 +2,7 @@
 {% set active_page = "projects"  %}
 {% set active_project = project.short_name %}
 
-{% block content %}
+{% block content %}<div class="container">
 <script>
     Modernizr.load({
             test: window.JSON,
@@ -35,4 +35,4 @@ en
 {% endif %}
 </div>
 
-{% endblock %}
+</div>{% endblock %}

@@ -2,8 +2,8 @@
 {% set active_page = "projects"  %}
 {% set active_project = project.short_name  %}
 
-{% block content %}
+{% block content %}<div class="container">
 
 {{ project.info.task_result|safe}}
 
-{% endblock %}
+</div>{% endblock %}

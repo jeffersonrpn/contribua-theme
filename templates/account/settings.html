@@ -3,7 +3,7 @@
 {% set active_link = "settings" %}
 {% import "account/_helpers.html" as helper %}
 
-{% block content %}
+{% block content %}<div class="container">
 <div class="row">
     <div class="col-md-3">
         {{ helper.render_account_local_nav(current_user, active_link) }} 
@@ -18,4 +18,4 @@
         {% endif %}
     </div>
 </div>
-{% endblock %}
+</div>{% endblock %}

@@ -3,7 +3,7 @@
 {% set active_project  = "settings" %}
 {% import "projects/_helpers.html" as helper %}
 
-{% block content %}
+{% block content %}<div class="container">
 <div class="row">
     {% if project %}
     <div class="col-md-3">
@@ -15,10 +15,10 @@
         {{ helper.render_project_summary(project, n_tasks, overall_progress, last_activity, current_user, upload_method) }}
         <h2>{{ _('Project Settings') }}</h2>
         <div class="btn-group">
-            <a class="btn btn-default" href="{{ url_for('project.update', short_name = project.short_name) }}"><i class="glyphicon glyphicon-edit icon-white"></i> {{ _('Edit the project details') }}</a>
-            <a class="btn btn-default" href="{{ url_for('project.task_settings', short_name = project.short_name) }}"><i class="glyphicon glyphicon-wrench icon-white"></i> {{ _('Task Settings') }}</a>
-            <a class="btn btn-default" href="{{ url_for('project.delete', short_name = project.short_name) }}"><i class="glyphicon glyphicon-trash icon-white"></i> {{ _('Delete the project') }}</a>
-            <a class="btn btn-default" href="{{ url_for('project.new_blogpost', short_name = project.short_name) }}"><i class="glyphicon glyphicon-pencil icon-white"></i> {{ _('Write a blog post') }}</a>
+            <a class="btn btn-default" href="{{ url_for('project.update', short_name = project.short_name) }}"><i class="glyphicon glyphicon-edit"></i> {{ _('Edit the project details') }}</a>
+            <a class="btn btn-default" href="{{ url_for('project.task_settings', short_name = project.short_name) }}"><i class="glyphicon glyphicon-wrench"></i> {{ _('Task Settings') }}</a>
+            <a class="btn btn-default" href="{{ url_for('project.delete', short_name = project.short_name) }}"><i class="glyphicon glyphicon-trash"></i> {{ _('Delete the project') }}</a>
+            <a class="btn btn-default" href="{{ url_for('project.new_blogpost', short_name = project.short_name) }}"><i class="glyphicon glyphicon-pencil"></i> {{ _('Write a blog post') }}</a>
         </div>
     </div>
     {% else %}
@@ -28,4 +28,4 @@
     {% endif %}
 </div>
 {{ helper.broken_image() }}
-{% endblock %}
+</div>{% endblock %}

@@ -3,7 +3,7 @@
 {% set active_link  = "settings" %}
 {% import "projects/_helpers.html" as helper %}
 
-{% block content %}
+{% block content %}<div class="container">
 <div class="row">
     <div class="col-md-3">
         {{ helper.render_project_local_nav(project, active_link, current_user) }}
@@ -29,4 +29,4 @@
     </div>
 </div>
 {{ helper.broken_image() }}
-{% endblock %}
+</div>{% endblock %}
