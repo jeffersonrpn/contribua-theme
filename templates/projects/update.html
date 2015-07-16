@@ -16,9 +16,9 @@
       <form method="post" class="form-horizontal" action="{{ url_for('project.update', short_name=project.short_name) }}" enctype="multipart/form-data">
           <fieldset>
               <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
-              <div>
-              {{ helper.render_project_thumbnail(project, upload_method, id="uploadPreview") }}
-              </div>
+              <p class="text-center">
+                {{ helper.render_project_thumbnail(project, upload_method, id="uploadPreview") }}
+              </p>
               {{ render_field(upload_form.avatar, onchange="previewImage()") }}
               {{ upload_form.x1 }}
               {{ upload_form.y1 }}
