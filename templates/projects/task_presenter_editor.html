@@ -32,7 +32,7 @@
                 {{ render_field(form.editor)}}
                 <div class="form-actions">
                     <input type="submit" value={{ _('Update the project task presenter') }} class="btn btn-primary" />
-                    <a href="#" class="btn btn-preview" value="preview">{{ _('Preview the task presenter') }}</a>
+                    <a href="#" class="btn btn-default" value="preview">{{ _('Preview the task presenter') }}</a>
                     <a href="{{url_for('project.settings', short_name=project.short_name)}}" class="btn btn-default">{{ _('Cancel') }}</a>
                 </div>
             </fieldset>
@@ -40,18 +40,22 @@
     </div>
 </div>
 
-<div id="modal-preview" class="modal hide big-modal">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">{{ _('&times;') }}</button>
-        <h2><strong>{{project.name}}</strong>: {{ _('Task Presenter Preview') }}</h2>
-    </div>
-    <div class="modal-body">
-        <section id="output">
-            <iframe></iframe>
-        </section>
-    </div>
-    <div class="modal-footer">
-        <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">{{ _('Close') }}</button>
+<div id="modal-preview" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true">{{ _('&times;') }}</button>
+                <h4 class="modal-title"><strong>{{project.name}}</strong>: {{ _('Task Presenter Preview') }}</h4>
+            </div>
+            <div class="modal-body">
+                <section id="output">
+                    <iframe></iframe>
+                </section>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal">{{ _('Close') }}</button>
+            </div>
+        </div>
     </div>
 </div>
 
