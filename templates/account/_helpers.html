@@ -92,12 +92,15 @@
 {% endmacro %}
 
 {% macro render_pagination(pagination) %}
-  <div class="pagination pagination-centered">
-      <ul>
+  <nav>
+      <ul class="pagination pagination-centered">
         {% if pagination.has_prev %}
           <li>
-          <a href="{{ url_for_other_page(pagination.page - 1)
-            }}">&laquo; {{_('Prev')}}</a>
+            <a href="{{ url_for_other_page(pagination.page - 1) }}" aria-label="{{_('Prev')}}">&laquo; {{_('Prev')}}</a>
+          </li>
+        {% else %}
+          <li class="disabled">
+            <a href="#" aria-label="{{_('Prev')}}" aria-label="{{_('Prev')}}"><span aria-hidden="true">&laquo; {{_('Prev')}}</span></a>
           </li>
         {% endif %}
 
@@ -106,7 +109,7 @@
             {% if page != pagination.page %}
             <li>
               <a href="{{ url_for_other_page(page) }}">{{ page }}</a>
-             </li>
+            </li>
             {% else %}
             <li class="active">
                 <a href="#">{{ page }}</a>
@@ -116,12 +119,15 @@
         {%- endfor %}
         {% if pagination.has_next %}
           <li>
-          <a href="{{ url_for_other_page(pagination.page + 1)
-            }}">{{_('Next')}} &raquo;</a>
+            <a href="{{ url_for_other_page(pagination.page + 1) }}">{{_('Next')}} &raquo;</a>
+          </li>
+        {% else %}
+          <li class="disabled">
+            <a href="#" aria-label="{{_('Next')}}"><span aria-hidden="true">{{_('Next')}} &raquo;</span></a>
           </li>
         {% endif %}
     </ul>
-  </div>
+  </nav>
 {% endmacro %}
 
 
