@@ -89,22 +89,22 @@
       
       {% if top_users %}
       <div class="container-fluid grey">
-        <section id="top_users">
-          <h2><i class="glyphicon glyphicon-group"></i>{{ _('Most Active Volunteers') }}</h2>
-          <ul class="users">
-              {% for user in top_users %}
-            <li>
-            <a href="{{url_for('account.profile', name=user.name)}}" data-content="
-                  <strong>{{_('Joined')}}:</strong> {{user.created[0:10]}} 
-                  <br/>
-                  <strong>{{_('Submitted Tasks')}}:</strong> {{user.task_runs}}
-                  " rel="popover" data-original-title="<strong>{{user.fullname}}</strong>">
-                  {{ account_helper.render_user_thumbnail(user, upload_method, style="height:90px; width:90px;") }}
-             </a>
-             <span class="label label-success">{{user.task_runs}}</span> <small>{{_('Tasks')}}</small>
-            </li>
+        <section id="top_users" class="container">
+          <h2><i class="glyphicon glyphicon-user"></i>{{ _('Most Active Volunteers') }}</h2>
+          <div class="row">
+            {% for user in top_users %}
+            <div class="col-xs-2 col-sm-4 col-md-3 col-lg-2">
+              <a href="{{url_for('account.profile', name=user.name)}}" data-content="
+                    <strong>{{_('Joined')}}:</strong> {{user.created[0:10]}} 
+                    <br/>
+                    <strong>{{_('Submitted Tasks')}}:</strong> {{user.task_runs}}
+                    " rel="popover" data-original-title="<strong>{{user.fullname}}</strong>">
+                    {{ account_helper.render_user_thumbnail(user, upload_method, width="1000%") }}
+               </a>
+               <span class="label label-success">{{user.task_runs}}</span> <small>{{_('Tasks')}}</small>
+            </div>
             {% endfor %}
-          </ul>
+          </div>
         </section>
       </div>
       {% endif %}

@@ -63,7 +63,7 @@
         <li><strong><i class="glyphicon glyphicon-info-sign"></i> {{ _('Description') }}</strong>: {{ project['description'] }}</li>
         <li><strong><i class="glyphicon glyphicon-ok"></i> {{ _('Creation Date') }}</strong>: {{ project.created[0:10] }}</li>
         <li><strong><i class="glyphicon glyphicon-time"></i> {{ _('Last Activity') }}</strong>: {{ last_activity}}</li>
-        <li><strong><i class="glyphicon glyphicon-cogs"></i> {{ _('Overall progress') }}</strong>: {{ overall_progress | round | int }}% {{ _('completed') }}</li>
+        <li><strong><i class="glyphicon glyphicon-cog"></i> {{ _('Overall progress') }}</strong>: {{ overall_progress | round | int }}% {{ _('completed') }}</li>
         <li><strong><i class="glyphicon glyphicon-tasks"></i> <a href="{{url_for('project.tasks',short_name=project.short_name)}}">{{ _('Tasks') }}</strong></a> ({{ n_tasks }})</li>
         {% if not current_user.is_anonymous() %}
         <li>{% if project.hidden == 1 %}
