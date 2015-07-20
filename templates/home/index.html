@@ -61,7 +61,7 @@
         <h2><i class="glyphicon glyphicon-th"></i> {{ _('Most Active Projects') }}</h2>
         <div class="row">
           {% for project in top_projects %}
-          <div class="col-md-3">
+          <div class="col-xs-6 col-sm-3">
             <div class="text-center">
                 {% if project.info.thumbnail %}
                 <a href="{{url_for('project.details', short_name=project.short_name)}}" class="image" style="background-image:url({{helper.render_url_thumbnail(project, upload_method)}})"></a>
@@ -101,7 +101,7 @@
                     " rel="popover" data-original-title="<strong>{{user.fullname}}</strong>">
                     {{ account_helper.render_user_thumbnail(user, upload_method, style="width:100%;") }}
                </a>
-               <span class="label label-success">{{user.task_runs}}</span> <small>{{_('Tasks')}}</small>
+               <p class="text-center"><span class="label label-success">{{user.task_runs}}</span> <small>{{_('Tasks')}}</small></p>
             </div>
             {% endfor %}
           </div>

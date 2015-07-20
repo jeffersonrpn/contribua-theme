@@ -25,14 +25,15 @@
     </div>
     <div class="col-md-9">
         <!-- Task Presenter Editor -->
-        <h1><strong>{{project.name}}</strong>: {{ _('Task Presenter Editor') }} <a class="btn btn-lg pull-right" href="http://docs.pybossa.com/en/latest/overview.html#task-presenter"><i class="glyphicon glyphicon-book"></i> {{ _('Help') }}</a></h1>
-        <form class="form-inline" method="post" action="{{ url_for('project.task_presenter_editor', short_name=project.short_name) }}">
+        <h1><strong>{{project.name}}</strong>: {{ _('Task Presenter Editor') }} <a class="btn btn-default pull-right" href="http://docs.pybossa.com/en/latest/overview.html#task-presenter"><i class="glyphicon glyphicon-book"></i> {{ _('Help') }}</a></h1>
+        <br>
+        <form class="form-horizontal" method="post" action="{{ url_for('project.task_presenter_editor', short_name=project.short_name) }}">
             {{ form.hidden_tag() }}
             <fieldset>
                 {{ render_field(form.editor)}}
                 <div class="form-actions">
-                    <input type="submit" value={{ _('Update the project task presenter') }} class="btn btn-primary" />
-                    <a href="#" class="btn btn-default" value="preview">{{ _('Preview the task presenter') }}</a>
+                    <input type="submit" value="{{ _('Update the project task presenter') }}" class="btn btn-primary" />
+                    <a href="#" class="btn btn-default btn-preview" value="preview">{{ _('Preview the task presenter') }}</a>
                     <a href="{{url_for('project.settings', short_name=project.short_name)}}" class="btn btn-default">{{ _('Cancel') }}</a>
                 </div>
             </fieldset>
