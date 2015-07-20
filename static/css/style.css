@@ -95,6 +95,9 @@ footer a:hover,
 footer a:active {
   color: #CDCDCD;
 }
+.project-item {
+  width: 100%;
+}
 /* Bootstrap overhide */
 .btn-primary {
   color: #fff;
