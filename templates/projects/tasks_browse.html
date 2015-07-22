@@ -24,38 +24,47 @@
                 {% for t in tasks %}
                 {% set task_pct = t.pct_status*100 %}
                 <div class="row">
-                        <div class="col-md-3">
+                    <div class="col-md-2">
+                        <p>
                             {% if task_pct >= 100 %}
                             {{_('Task')}} <span class="label label-success">#{{ t.id }}</span>
                             {% else %}
                             {{_('Task')}} <span class="label label-info">#{{ t.id }}</span>
                             {% endif %}
                             {{ t.n_task_runs }} {{_('of')}} {{ t.n_answers }}
-                        </div>
+                        </p>
+                    </div>
+                    <div class="col-md-7">
                         {% if task_pct >= 100 %}
-                        <div class="progress progress-success progress-striped col-md-5"> 
-                                <div class="progress-bar" style="width:{{ task_pct }}%;"></div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{ task_pct }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ task_pct }}%;">
+                                {{ task_pct | round(1) }}%
+                            </div>
                         </div>
                         {% else %}
-                        <div class="progress progress-info progress-striped col-md-5"> 
-                                <div class="progress-bar" style="width:{{ task_pct }}%;"></div>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{ task_pct }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ task_pct }}%;">
+                                {{ task_pct | round(1) }}%</span>
+                            </div>
                         </div>
                         {% endif %}
-                        <div class="col-md-4">
+                    </div>
+                    <div class="col-md-3">
                         {% if task_pct >= 100 %}
-                            <a id="fulldownload" rel="nofollow" class="btn btn-success" href="{{ url_for('project.export', 
-                                short_name=project.short_name,
-                                task_id=t.id) }}"><i class="glyphicon glyphicon-cloud-download"></i> {{_('Download Task Results')}}</a>
+                        <a id="fulldownload" rel="nofollow" class="btn btn-sm btn-block btn-success" href="{{ url_for('project.export', 
+                            short_name=project.short_name,
+                            task_id=t.id) }}"><i class="glyphicon glyphicon-cloud-download"></i> {{_('Download Task Results')}}</a>
                         {% elif task_pct > 0 and task_pct < 100 %}
-                            <a id="partialdownload" rel="nofollow" class="btn btn-info" href="{{ url_for('project.export', 
-                                short_name=project.short_name,
-                                task_id=t.id) }}"><i class="glyphicon glyphicon-cloud-download"></i> {{_('Download Partial results')}}</a>
+                        <a id="partialdownload" rel="nofollow" class="btn btn-sm btn-block btn-info" href="{{ url_for('project.export', 
+                            short_name=project.short_name,
+                            task_id=t.id) }}"><i class="glyphicon glyphicon-cloud-download"></i> {{_('Download Partial results')}}</a>
 
-                         {% else %}
-                            <a id="nothingtodownload" rel="nofollow" class="btn btn-info disabled" href="#"><i class="glyphicon glyphicon-cloud-download"></i> {{_('Nothing to download yet')}}</a>
-                         {% endif %}
-                        </div>
+                        {% else %}
+                        <a id="nothingtodownload" rel="nofollow" class="btn btn-sm btn-block btn-info disabled" href="#"><i class="glyphicon glyphicon-cloud-download"></i> {{_('Nothing to download yet')}}</a>
+                        {% endif %}
+                    </div>
                 </div>
+                <br>
                 {% endfor %}
             </div><!-- col-md-9 -->
         </div>
