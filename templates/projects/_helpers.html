@@ -238,10 +238,8 @@ function imgError(image) {
 <div class="row">
     {% for project in projects %}
     <div class="col-sm-6 col-md-2 text-center">
-        <a href={{ url_for('project.details', short_name=project.short_name)}}>
+        <a href={{ url_for('project.details', short_name=project.short_name)}} rel="popover" data-toggle="popover" data-content="{{project.name}}">
             {{ render_project_thumbnail(project, upload_method, class='img-thumbnail', style="min-height:100px; min-width:100px;")}}
-            <h4>{{project.name}}</h4>
-            <span class="label label-info">{{ _('Info') }}</span>
         </a>
     </div>
     {% endfor %}

@@ -28,4 +28,14 @@
     </div>
 </div>
 {{ broken_image() }}
-</div>{% endblock %}
+</div>
+
+<script>
+$("a[rel=popover]").popover({
+    html: true,
+    animation: true,
+    trigger: 'hover',
+    placement: 'top'
+});
+</script>
+{% endblock %}
