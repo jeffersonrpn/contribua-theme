@@ -2,18 +2,22 @@
     <div class="form-group {% if field.errors %} error {% endif %}">
         {{ render_label(field, tooltip, label_text) }}
         <div class="col-md-6">
+            {% set class_ = kwargs.pop('class_', '') %}
+            {% if field.type != 'BooleanField' %}
+                {% set class_ = class_ + ' form-control' %}
+            {% endif %}
             {% if addon %}
             <div class="{% if prepend %}input-group{%else%}input-group{%endif%}">
                 {% if prepend %}
-                <span class="input-group-addon">{{addon|safe}}</span>
-                {{field(class='form-control', **kwargs)}}
+                    <span class="input-group-addon">{{addon|safe}}</span>
+                    {{field(class_=class_, **kwargs)}}
                 {% else %}
-                {{field(class='form-control', **kwargs)}}
-                <span class="input-group-addon">{{addon|safe}}</span>
+                    {{field(class_=class_, **kwargs)}}
+                    <span class="input-group-addon">{{addon|safe}}</span>
                 {% endif %}
             </div>
             {% else %}
-                {{field(class='form-control', **kwargs)}}
+                {{ field(class_=class_, **kwargs) }}
             {% endif %}
             {% if field.errors %}
                 {% for error in field.errors %}
